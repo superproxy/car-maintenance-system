@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--加载文件，但是c3p0无法引用-->
+    <!--<context:property-placeholder location="classpath:db.properties"/>-->
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:db.properties"/>
+    </bean>
+
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${driver.class}"/>
+        <property name="jdbcUrl" value="${url}"/>
+        <property name="user" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <property name="initialPoolSize" value="${init.size}"/>
+        <property name="minPoolSize" value="${min.size}"/>
+        <property name="maxPoolSize" value="${max.size}"/>
+        <property name="maxIdleTime" value="${max.idle.time}"/>
+        <property name="acquireRetryAttempts" value="0"/>
+        <property name="acquireRetryDelay" value="1000"/>
+        <property name="breakAfterAcquireFailure" value="false"/>
+    </bean>
+
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
+    <!--&lt;!&ndash;mysql &ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="driverClassName" value="com.mysql.jdbc.Driver"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="url" value="jdbc:mysql://localhost:3306/car"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="username" value="root"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<property name="password" value="oooo3d"/>&ndash;&gt;-->
+
+    <!--<property name="driverClassName" value="${driver.class}"/>-->
+    <!--<property name="url" value="${url}"/>-->
+    <!--<property name="username" value="${username}"/>-->
+    <!--<property name="password" value="${password}"/>-->
+    <!--&lt;!&ndash;mysql end&ndash;&gt;-->
+    <!--</bean>-->
+
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
+    <!--&lt;!&ndash;h2&ndash;&gt;-->
+    <!--dbc:h2:file:/data/sample-->
+    <!--<property name="driverClassName" value="org.h2.Driver"/>-->
+    <!--<property name="url" value="jdbc:h2:~/carms.db"/>-->
+    <!--<property name="username" value="root"/>-->
+    <!--<property name="password" value="oooo3d"/>-->
+    <!--&lt;!&ndash;h2 end&ndash;&gt;-->
+    <!--</bean>-->
+
+
+</beans>

@@ -1,0 +1,73 @@
+框架
+1. spring mvc  restfulstyle
+
+定义action，模块结构
+
+2. hibernate注解  ，dao使用的还是hibernate提供的api，注解其实就和jpa差不多了。
+
+使用genericdao
+
+3.  增删改查，基本操作。
+4. 界面优化
+
+整体 结构     管理系统
+
+
+========流程
+1.  先确定框架
+2. 开发
+
+a.   include.header  include.footer  每个页面 都有，比较麻烦。
+b. sitemash  渲染   每个页面 不需要写，但是测试比较麻烦。
+c.  通用 index的结构，就是加载全部的资源。内容做变化，不用每一个页面做设置。
+
+
+第一个版本 日志和输入检查可以忽略
+
+
+关注正常流程， 所有的服务都有异常捕捉。 Contorller直接抛出异常，erro.jsp拦截
+
+SiteMesh是基于Servlet的filter的，即过滤流。它是通过截取reponse，并进行装饰后再交付给客户。
+其中涉及到两个名词： 装饰页面(decorator page)和 "被装饰页面(Content page)" , 即 SiteMesh通过对Content Page的装饰，最终得到页面布局和外观一致的页面，并返回给客户
+sitemesh运行环境需要：servlet, JDK 。
+
+
+样式方案
+1.  seesion记录
+2.  通过客户段直接修改
+
+
+
+
+
+V2
+富客户端支持
+
+
+
+
+
+
+
+
+https://code.google.com/p/hibernate-generic-dao/
+
+imply extend the GenericDAO class with the specific type.
+
+public interface ProjectDAO extends GenericDAO<Project, Long> {
+
+}
+
+public class ProjectDAOImpl extends GenericDAOImpl<Project, Long> implements ProjectDAO {
+
+}
+
+
+
+
+
+
+
+1.  基于hibernate注解 ，以后移植到jpa
+
+2.  以后移植支持gae

@@ -1,0 +1,5 @@
+<%@include file="/WEB-INF/jsp/header.jsp" %>
+<%@include file="/WEB-INF/jsp/includes.jsp" %>
+<a href="/peijian/add">添加配件</a> <br/>
+<a href="/peijian/list">查询配件</a> <br/>
+<%@include file="/WEB-INF/jsp/footer.jsp" %>

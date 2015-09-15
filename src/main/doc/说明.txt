@@ -1,0 +1,45 @@
+参考
+
+mybatis-jpetstore-6.0.1-bundle
+spring-jpetshop
+
+
+
+1. UI
+   jquey
+2. 整体框架
+spring mvc
+spring
+hibernate
+3. GRUD
+
+
+
+3. 初始化log，否则信息打印不出来
+
+
+4. tomcat默认主页 http://localhost:8080/
+
+5. 正确配置spring
+1.  spring mvc 默认加载
+
+Exception sending context initialized event to listener instance of class org.springframework.web.context.ContextLoaderListener
+org.springframework.beans.factory.BeanDefinitionStoreException: IOException parsing XML document from ServletContext resource [/WEB-INF/applicationContext.xml]; nested exception is java.io.FileNotFoundException: Could not open ServletContext resource [/WEB-INF/applicationContext.xml]
+
+
+
+2. spring application 默认加载
+
+3. hibernte加载
+
+mvn管理时，class bean.xml  需要放在  resources下。否则找不到
+
+
+1.前端  ，样式布局
+2. 后台 业务逻辑]
+
+
+更新 resource就可以了   sitemesh的模版，等资源
+
+=========
+ajax 之后 ，controller层弱化，不要返回视图。 只返回操作结果

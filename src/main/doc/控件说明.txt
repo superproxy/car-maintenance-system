@@ -1,0 +1,93 @@
+1     日期控件. http://www.my97.net/
+http://www.my97.net/dp/demo/
+
+
+2.                  ajax  jquery         部分dwz的功能
+
+3.  css  div 样式 自己定义
+
+
+
+
+主从表的操作设计    (1. 界面原型，2. 工作流程）
+
+js代码比较多，使用控件
+
+可以有计划的使用轻量级的控件，不一定要用框架。
+
+开源，不开源的一律不考虑
+商业支持
+
+
+
+=========创建流程=============
+1.  从表太客户端动态 增删改
+2.  主表和从表数据保存到服务器端。
+
+
+
+
+========UI框架=============
+http://www.oschina.net/project/tag/277/jquery-ui
+
+
+easyUI兼容性不好，extjs加载速度慢
+   除了extjs 都是免费的
+
+   想灵活练手用DWZ
+
+   想用现成的用easyui  不过基本需求复杂 还是选灵活的好
+
+
+ YUI框架,开源、遵循BSD协议并且可以免费使用，功能挺强
+
+
+国产jQuery UI框架 (jUI) DWZ       （文档好，担心后期维护）
+http://j-ui.com/
+http://runjs.cn/
+https://code.google.com/p/dwz/
+
+
+
+我去年开始的一个OA项目就是用的是DWZ，如果推荐度总分是五分，这个我可以给四分。
+用户extjs jQuery easy 最终在这个项目还是选择了DWZ。起码用这个框架简单，就算JS不算好，也可以独自完成V层。如果是EXTjs的话，MVC搞死人。个人感觉。DWZ唯一不爽的地方就是，如果你想在页面上面写CSS的话，就显得不是那么方便了。个人愚见!
+个人感觉，用了想改东西，问天不应，给钱则灵
+
+http://jqueryui.com/             (太弱，支持中文不好）
+easy ui  收费，不开源，只是个人支持。 风险太大。
+ 我个人使用easyui做开发，简单，规范，免费, 基本上能满足常用的各种效果和数据操作，展示。
+
+
+快速开发WebUI jQuery MiniUI
+jQuery MiniUI - 快速开发WebUI。 包含控件：DataGrid、Tree、TreeGrid、Menu、Toolbar、Tabs、Layout、Panel、DatePicker、ComboBox、TreeSelect、TextBoxList等。 典型应用：页面布局、CRUD、Master/Detail、数据验证等。 技术亮点： 快速开发：使用Htm...
+
+Ajax实现的一个动态表格，可适时添加数据行、删除数据行、复制行
+
+JS动态创建表格
+
+Sigma Grid实现ajax动态表格(支持分页、列宽拖动、数据排序)
+
+       使用ExtJs在客户端实现主从表的简单维护
+http://www.cnblogs.com/wdong/archive/2009/05/25/1488755.html
+
+Dojo是一个强大的面向对象JavaScript框架。
+主要由三大模块组成：Core、Dijit、DojoX。Core提供Ajax,events,packaging,CSS-based querying,animations,JSON等相关操作API。
+Dijit是一个可更换皮肤，基于模板的WEB UI控件库。DojoX包括一些创新/新颖的代码和控件：DateGrid，charts，离线应用，跨浏览器矢量绘图等。
+
+DWZ富客户端框架(jQuery RIA framework), 基于jQuery实现纯html+css+js富客户端UI组件框架.
+
+DWZ富客户端框架比ExtJs简单实用,比较适合做后台管理系统. 比较适合做二次开发,使用jQuery可以非常方便的定制特定需求的UI组件,并以jQuery插件的形式发布出来.如有需要我们也可做定制化开发.
+
+欢迎大家提出建议，我们将在下一版本中进一步调整和完善功能．
+
+DWZ富客户端框架的设计思路有些类似Flex, 第一次打开页面时载入整个界面到浏览器端. 之后和服务器的交互只是数据交互,客户端不会再去下载html, css, js等和界面相关的网络流量. 这样可以占用最少的网络带宽.
+
+DWZ富客户端框相比Flex的主要优势是：
+
+    * Flex企业级级应用还很少, 只有部分开发者感兴趣才深入研究，而且他们也对Flex做企业级应用还迟怀疑态度．Ajax 在各方面相对成熟的多．
+    * Flex中绝大多数文字都无法复制, 通过System.setClipboard(text)也只是把某个组件中的文字复制出来.
+    * Flex流浏览器必须安装flash插件, 而有些单位规定浏览器不能安装flash插件．
+    * Flex的打印支持也不好，flex需要通过专门的打印组件. 而且打印效果不好.
+    * Flex做的界面SEO不好做，搜索引擎很难从flash中读取内容．
+
+

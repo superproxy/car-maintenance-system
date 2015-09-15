@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+    <import resource="dataSource-applicationContext.xml"/>
+
+    <!-- 使用annotation定义事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="simpleJdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--基于hibernate注解-->
+    <!-- hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+            <!--本文件中的datasource-->
+            <!--<ref local="dataSource"/>-->
+        </property>
+
+        <property name="packagesToScan" value="com.yxz.apps.cms.po.hibernate"></property>
+        <!-- hibernate相关的参数设置 -->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.MySQLDialect
+                </prop>
+                <!--
+                每次加载hibernate时会自动更新表结构 -->
+                <!--
+                    <prop key="hibernate.hbm2ddl.auto">update</prop> 每次加载时会自动验证表结构
+                -->
+                <!--<prop key="hibernate.hbm2ddl.auto">validate</prop>-->
+                <!--
+                    每次会删除之前的并重建表结构 使用会丢失数据 测试时候用  -->
+                <!--<prop key="hibernate.hbm2ddl.auto">create</prop>-->
+                <!--每次建立表结构用完会删除 这个也会丢失数据-->
+                <!--<prop key="hibernate.hbm2ddl.auto">create-drop</prop>-->
+
+                <!-- 性能参数 -->
+                <prop key="hibernate.default_batch_fetch_size">16</prop>
+                <prop key="hibernate.jdbc.batch_size">30</prop>
+                <prop key="hibernate.jdbc.fetch_size">50</prop>
+                <!--
+                    使用2级缓存 <prop key="hibernate.cache.provider_class">
+                    org.hibernate.cache.EhCacheProvider </prop> <prop
+                    key="hibernate.cache.use_query_cache">true</prop>
+                -->
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <!-- 允许使用外联接 -->
+                <prop key="hibernate.use_outer_join">true</prop>
+                <prop key="hibernate.max_fetch_depth">3</prop>
+                <!-- 开启hibernate会收集性能数据 -->
+                <prop key="hibernate.generate_statistics">true</prop>
+                <!-- 指定Hibernate在何时释放JDBC连接 -->
+                <prop key="hibernate.connection.release_mode">auto</prop>
+                <!-- 获得的连接不要会超时  这个设置不一定有用 -->
+                <prop key="hibernate.autoReconnect">true</prop>
+                <prop key="connection.autoReconnectForPools">true</prop>
+                <prop key="connection.is-connection-validation-required">true</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/car</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+                <prop key="hibernate.connection.username">root</prop>
+                <prop key="hibernate.connection.password">oooo3d</prop>
+                <!--
+                    选择HQL解析器的实现 <prop key="hibernate.query.factory_class">
+                    org.hibernate.hql.ast.ASTQueryTranslatorFactory </prop>
+                    默认打开，启用cglib反射优化。cglib是用来在Hibernate中动态生成PO字节码的，打开优化可以加快字节码构造的速度
+                    <prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
+                    “useUnicode”和“characterEncoding”决定了它是否在客户端和服务器端传输过程中进行Encode，以及如何进行Encode
+                    <prop key="hibernate.connection.useUnicode">true</prop>
+                -->
+            </props>
+        </property>
+    </bean>
+
+</beans>

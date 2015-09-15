@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/jsp/decorators">
+
+    <!-- 此处用来定义不需要过滤的页面 -->
+    <excludes>
+    </excludes>
+    <!--<decorator name="main" page="template.jsp">-->
+    <decorator name="main" page="template_dwz.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+
+</decorators>

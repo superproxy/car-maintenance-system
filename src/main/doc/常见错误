@@ -1,0 +1,6 @@
+1.  dwz程序运行时，build非常慢，估计是文件互斥导致的。
+
+2.   关闭浏览器，重新运行build.
+
+3. maven build 和自带的build冲突，优先使用IDE自带的Build
+
